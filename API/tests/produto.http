@@ -1,0 +1,8 @@
+@url_base = http://localhost:5125/api/produto
+
+POST {{url_base}}/cadastrar
+Content-Type: application/json
+
+{
+    "nome" : "Diamante"
+}

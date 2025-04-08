@@ -9,30 +9,16 @@ namespace API.Controllers;
 [Route("api/produto")]
 public class ProdutoController : ControllerBase
 {
-    //Exemplo de método dentro de uma classe
-    //[HttpGet]
-    //public string Metodo()
-    //{
-      //  return "";
-    //}
-
-    //Exemplo de um EndPoint dentro de um Controller
-    [HttpGet("helloworld")]
-    public IActionResult HelloWorld()
+    private readonly IProdutoRepository _produtoRepository;
+    public ProdutoController(IProdutoRepository produtoRepository)
     {
-        return Ok("Hello World!");
-    }
-
-    public ProdutoController(AppDataContext context)
-    {
-        _context = context;
+        _produtoRepository = produtoRepository;
     }
     [HttpPost("cadastrar")]
     public IActionResult Cadastrar([FromBody] Produto produto)
     {
-        _context.Produtos.Add(produto);
-        _context.SaveChanges();
+        
+       _produtoRepository.Cadastrar(produto);
         return Created("", produto);
     }
-    private readonly AppDataContext _context;
 }
