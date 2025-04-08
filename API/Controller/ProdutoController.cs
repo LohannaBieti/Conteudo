@@ -21,4 +21,9 @@ public class ProdutoController : ControllerBase
        _produtoRepository.Cadastrar(produto);
         return Created("", produto);
     }
+    [HttpGet("listar")]
+    public IActionResult Listar()
+    {
+        return Ok(_produtoRepository.Listar());
+    }
 }
