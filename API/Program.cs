@@ -1,6 +1,6 @@
 using API.Data;
+using API.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,11 +11,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var connectionString = builder.Configuration.GetConnectionString("MySQL");
+var connectionString = builder.
+    Configuration.GetConnectionString("MySQL");
 
-builder.Services.AddDbContext<AppDataContext>(Options => Options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
-
-builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
+builder.Services.AddDbContext<AppDataContext>
+    (options => options.UseMySql(connectionString, 
+    ServerVersion.AutoDetect(connectionString)));
+builder.Services.
+    AddScoped<IProdutoRepository, ProdutoRepository>();
+builder.Services.
+    AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 var app = builder.Build();
 

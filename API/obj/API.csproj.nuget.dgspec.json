@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\REVISÃO\\Ecommerce\\API\\API.csproj": {}
+    "C:\\REVISÃO\\Conteudo\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\REVISÃO\\Ecommerce\\API\\API.csproj": {
+    "C:\\REVISÃO\\Conteudo\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\REVISÃO\\Ecommerce\\API\\API.csproj",
+        "projectUniqueName": "C:\\REVISÃO\\Conteudo\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\REVISÃO\\Ecommerce\\API\\API.csproj",
+        "projectPath": "C:\\REVISÃO\\Conteudo\\API\\API.csproj",
         "packagesPath": "C:\\Users\\LOHANNABIETIVIEIRA\\.nuget\\packages\\",
-        "outputPath": "C:\\REVISÃO\\Ecommerce\\API\\obj\\",
+        "outputPath": "C:\\REVISÃO\\Conteudo\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LOHANNABIETIVIEIRA\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -43,6 +43,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.*, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
