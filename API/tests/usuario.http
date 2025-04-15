@@ -3,6 +3,7 @@
 ### Cadastrar usuário
 POST {{url_base}}/cadastrar
 Content-Type: application/json
+ 
 
 {
     "email" : "Teste1",

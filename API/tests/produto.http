@@ -2,6 +2,7 @@
 
 POST {{url_base}}/cadastrar
 Content-Type: application/json
+Authorization:
 
 {
     "nome" : "Diamante"

@@ -205,7 +205,6 @@ C:\REVISÃO\Conteudo\API\obj\Debug\net8.0\API.AssemblyInfo.cs
 C:\REVISÃO\Conteudo\API\obj\Debug\net8.0\API.csproj.CoreCompileInputs.cache
 C:\REVISÃO\Conteudo\API\obj\Debug\net8.0\API.MvcApplicationPartsAssemblyInfo.cs
 C:\REVISÃO\Conteudo\API\obj\Debug\net8.0\API.MvcApplicationPartsAssemblyInfo.cache
-C:\REVISÃO\Conteudo\API\obj\Debug\net8.0\API.sourcelink.json
 C:\REVISÃO\Conteudo\API\obj\Debug\net8.0\staticwebassets.build.json
 C:\REVISÃO\Conteudo\API\obj\Debug\net8.0\staticwebassets.development.json
 C:\REVISÃO\Conteudo\API\obj\Debug\net8.0\staticwebassets\msbuild.API.Microsoft.AspNetCore.StaticWebAssets.props

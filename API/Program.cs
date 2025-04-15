@@ -25,8 +25,6 @@ builder.Services.
 builder.Services.
     AddScoped<IUsuarioRepository, UsuarioRepository>();
 
-var app = builder.Build();
-
 var chaveJwt = builder.Configuration["JwtSettings:SecretKey"];
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -46,6 +44,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
+var app = builder.Build();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -55,6 +55,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthorization();
 
+app.UseAuthentication();
+
 app.MapControllers();
 
 app.Run();
+
+
+
