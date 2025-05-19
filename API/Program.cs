@@ -14,6 +14,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+    options.AddPolicy("Acesso Total",
+        configs => configs
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod())
+);
+
 var connectionString = builder.
     Configuration.GetConnectionString("MySQL");
 
@@ -58,6 +66,8 @@ app.UseAuthorization();
 app.UseAuthentication();
 
 app.MapControllers();
+
+app.UseCors("Acesso total");
 
 app.Run();
 
