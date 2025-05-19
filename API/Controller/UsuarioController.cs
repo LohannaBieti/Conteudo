@@ -14,7 +14,8 @@ public class UsuarioController : ControllerBase
 {
     private readonly IUsuarioRepository _usuarioRepository;
     private readonly IConfiguration _configuration;
-    public UsuarioController(IUsuarioRepository usuarioRepository, IConfiguration configuration)
+    public UsuarioController(IUsuarioRepository usuarioRepository,
+        IConfiguration configuration)
     {
         _usuarioRepository = usuarioRepository;
         _configuration = configuration;
@@ -32,22 +33,23 @@ public class UsuarioController : ControllerBase
     {
         Usuario? usuarioExistente = _usuarioRepository
             .BuscarUsuarioPorEmailSenha(usuario.Email, usuario.Senha);
-        if(usuarioExistente == null)
+
+        if (usuarioExistente == null)
         {
-            return Unauthorized(new { mensagem = "Usuário ou senha inválidos!"});
+            return Unauthorized(new { mensagem = "Usuário ou senha inválidos!" });
         }
-            
 
         string token = GerarToken(usuarioExistente);
-        return Ok(usuarioExistente);
+        return Ok(token);
     }
 
     [HttpGet("listar")]
     public IActionResult Listar()
-    {        
+    {
         return Ok(_usuarioRepository.Listar());
     }
 
+    [ApiExplorerSettings(IgnoreApi = true)]
     public string GerarToken(Usuario usuario)
     {
         var claims = new[]
@@ -56,9 +58,21 @@ public class UsuarioController : ControllerBase
             new Claim(ClaimTypes.Role, usuario.Permissao.ToString())
         };
 
-        var chave = Encoding.UTF8.GetBytes(_configuration["JwtSettings:SecretKey"]);
-        var assinatura = new SigningCredentials(new SymmetricSecurityKey(chave), SecurityAlgorithms.HmacSha256);
-        var token = new JwtSecurityToken(claims: claims, expires: DateTime.Now.AddSeconds(30), signingCredentials: assinatura);
+        var chave = Encoding.UTF8.GetBytes(_configuration["JwtSettings:SecretKey"]!);
+        
+        var assinatura = new SigningCredentials(
+            new SymmetricSecurityKey(chave),
+            SecurityAlgorithms.HmacSha256
+        );
+
+        var token = new JwtSecurityToken(
+            claims: claims,
+            expires: DateTime.Now.AddSeconds(30),
+            signingCredentials: assinatura
+        );
+        
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
+
+
 }

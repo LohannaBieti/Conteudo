@@ -227,3 +227,7 @@ C:\REVISÃO\Conteudo\API\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
 C:\REVISÃO\Conteudo\API\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\REVISÃO\Conteudo\API\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\REVISÃO\Conteudo\API\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\REVISÃO\Conteudo\API\obj\Debug\net8.0\API.sourcelink.json
+C:\REVISÃO\Conteudo\API\bin\Debug\net8.0\front\package-lock.json
+C:\REVISÃO\Conteudo\API\bin\Debug\net8.0\front\package.json
+C:\REVISÃO\Conteudo\API\bin\Debug\net8.0\front\tsconfig.json
