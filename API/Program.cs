@@ -15,7 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options =>
-    options.AddPolicy("Acesso Total",
+    options.AddPolicy("Acesso total",
         configs => configs
             .AllowAnyOrigin()
             .AllowAnyHeader()
@@ -26,7 +26,7 @@ var connectionString = builder.
     Configuration.GetConnectionString("MySQL");
 
 builder.Services.AddDbContext<AppDataContext>
-    (options => options.UseMySql(connectionString, 
+    (options => options.UseMySql(connectionString,
     ServerVersion.AutoDetect(connectionString)));
 builder.Services.
     AddScoped<IProdutoRepository, ProdutoRepository>();
@@ -43,7 +43,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuer = false,
             ValidateAudience = false,
             ValidateLifetime = true,
-						ClockSkew = TimeSpan.Zero,
+            ClockSkew = TimeSpan.Zero,
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(chaveJwt!))
@@ -61,15 +61,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseAuthorization();
-
 app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 
 app.UseCors("Acesso total");
 
 app.Run();
-
-
-
